@@ -1,0 +1,34 @@
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  const Users = sequelize.define('Users', {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty:{
+          msg: 'The firstName field cannot be empty'
+        }
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      validate:{
+        isEmail: {
+          msg: 'invalid email address'
+        }
+      }
+    }
+  }, {
+    classMethods: {
+      associate: (models) => {
+        // associations can be defined here
+        Users.hasMany(models.Workouts, {
+          foreignKey: 'userId',
+          onDelete: 'CASCADE',
+          hooks: true
+        });
+      }
+    }
+  });
+  return Users;
+};
