@@ -1,0 +1,29 @@
+{
+  "name": "PushIt",
+  "version": "1.0.0",
+  "description": "An online exercise regiment tracker.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-ieyo/PushIt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andela-ieyo/PushIt/issues"
+  },
+  "homepage": "https://github.com/andela-ieyo/PushIt#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "nodemon": "^1.11.0",
+    "pg": "^7.2.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.7.5"
+  }
+}
