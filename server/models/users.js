@@ -5,30 +5,34 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notEmpty:{
-          msg: 'The firstName field cannot be empty'
-        }
-      }
+        notEmpty: {
+          msg: 'The firstName field cannot be empty',
+        },
+      },
     },
     email: {
       type: DataTypes.STRING,
-      validate:{
+      allowNull: false,
+      unique: true,
+      validate: {
         isEmail: {
-          msg: 'invalid email address'
-        }
-      }
-    }
-  }, {
-    classMethods: {
-      associate: (models) => {
-        // associations can be defined here
-        Users.hasMany(models.Workouts, {
-          foreignKey: 'userId',
-          onDelete: 'CASCADE',
-          hooks: true
-        });
-      }
-    }
+          msg: 'invalid email address',
+        },
+      },
+    },
   });
+  Users.associate = (models) => {
+    // associations can be defined here
+    Users.hasMany(models.Workouts, {
+      foreignKey: 'userId',
+      onDelete: 'CASCADE',
+      hooks: true,
+    });
+    Users.hasMany(models.WeeklyAverage, {
+      foreignKey: 'userId',
+      onDelete: 'CASCADE',
+      hooks: true,
+    });
+  };
   return Users;
 };

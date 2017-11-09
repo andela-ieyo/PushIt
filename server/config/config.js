@@ -7,7 +7,7 @@ module.exports = {
     database: 'pit',
     host: '127.0.0.1',
     port: 5432,
-    dialect: 'postgres'
+    dialect: 'postgres',
   },
   test: {
     username: 'andeladeveloper',
@@ -16,19 +16,19 @@ module.exports = {
     host: '127.0.0.1',
     port: 5432,
     dialect: 'postgres',
-    logging: false
+    logging: false,
   },
   production: {
     use_env_variable: 'DATABASE_URL',
     dialect: 'postgres',
     ssl: true,
-    'dialectOptions': {
-      'ssl': {
-        'require': true
-      }
-    }
+    dialectOptions: {
+      ssl: {
+        require: true,
+      },
+    },
   },
   travis: {
-    use_env_variable: 'DATABASE_URL'
-  }
+    use_env_variable: 'DATABASE_URL',
+  },
 };
