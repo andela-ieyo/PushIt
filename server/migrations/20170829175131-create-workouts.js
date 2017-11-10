@@ -6,25 +6,25 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       count: {
         type: Sequelize.INTEGER,
         allowNull: false,
         validate: {
           isInt: {
-            msg: 'Must be an integer'
-          }
-        }
+            msg: 'Must be an integer',
+          },
+        },
       },
       repNo: {
         type: Sequelize.INTEGER,
         allowNull: false,
         validate: {
           isInt: {
-            msg: 'Must be an integer'
-          }
-        }
+            msg: 'Must be an integer',
+          },
+        },
       },
       type: {
         type: Sequelize.STRING,
@@ -44,15 +44,15 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('Workouts');
-  }
+  },
 };

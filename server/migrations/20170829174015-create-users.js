@@ -6,36 +6,38 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       name: {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
-          notEmpty:{
-            msg: 'The firstName field cannot be empty'
-          }
-        }
+          notEmpty: {
+            msg: 'The firstName field cannot be empty',
+          },
+        },
       },
       email: {
         type: Sequelize.STRING,
-        validate:{
+        allowNull: false,
+        unique: true,
+        validate: {
           isEmail: {
-            msg: 'invalid email address'
-          }
-        }
+            msg: 'invalid email address',
+          },
+        },
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('Users');
-  }
+  },
 };

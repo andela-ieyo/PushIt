@@ -6,28 +6,41 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         isInt: {
-          msg: 'Must be an integer'
-        }
-      }
+          msg: 'Must be an integer',
+        },
+      },
     },
     repNo: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
         isInt: {
-          msg: 'Must be an integer'
-        }
-      }
+          msg: 'Must be an integer',
+        },
+      },
     },
-  }, {
-    classMethods: {
-      associate: (models) => {
-        // associations can be defined here
-        Workouts.belongsTo(models.Users, {
-          foreignKey: 'userId',
-        });
-      }
-    }
+    userId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Users',
+        key: 'id',
+        as: 'userId',
+      },
+    },
+    type: {
+      type: DataTypes.STRING,
+      references: {
+        model: 'WorkoutType',
+        key: 'name',
+        as: 'type',
+      },
+    },
   });
+  Workouts.associate = (models) => {
+    // associations can be defined here
+    Workouts.belongsTo(models.Users, {
+      foreignKey: 'userId',
+    });
+  };
   return Workouts;
 };
