@@ -8,12 +8,12 @@ export const getRecentAverage = (req, res) => {
     where: {
       userId: req.user.id,
     },
-    order: ['createdAt', 'DESC'],
+    order: [['createdAt', 'DESC']],
   };
 
   WeeklyAverage.findAll(query)
     .then((averages) => {
-      res.status(200).send({ Average: averages[0] });
+      res.status(200).send({ average: averages[0] });
     })
     .catch((err) => {
       res.status(500).send({
@@ -27,7 +27,7 @@ export const getAverages = (req, res) => {
   const { from: startDate, to: endDate } = req.query;
   const query = {
     where: { userId: req.user.id },
-    order: ['createdAt', 'DESC'],
+    order: [['createdAt', 'DESC']],
   };
 
   let start;

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import bunyan from 'bunyan';
 import PropTypes from 'prop-types';
+
+const log = bunyan.createLogger({ name: 'pushIt' });
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -11,7 +14,7 @@ class ErrorBoundary extends Component {
     // Display fallback UI
     this.setState({ hasError: true });
     // You can also log the error to an error reporting service
-    logError(error, info);
+    log.info(error, info);
   }
 
   render() {

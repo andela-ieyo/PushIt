@@ -12,9 +12,10 @@ export default function passportConfig(passport) {
 
   // used to deserialize the user
   passport.deserializeUser((id, done) => {
-    Users.findById(id, (err, user) => {
-      done(err, user);
-    });
+    console.log(id)
+    Users.findById(id)
+      .then(user => done(null, user))
+      .catch(err => done(new Error(err)));
   });
 
   passport.use(
@@ -29,15 +30,15 @@ export default function passportConfig(passport) {
           .then((user) => {
             // if a user is found, log them in
             if (user) {
-              return done(null, user);
+              return user;
             }
             return Users.create({
               name: profile.displayName,
               email: profile.emails[0].value,
             });
           })
-          .then(newUser => done(null, newUser))
-          .catch(err => done(new Error(err)));
+          .then(user => done(null, user))
+          .catch(err => done(err));
       });
     }),
   );

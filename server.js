@@ -11,6 +11,11 @@ import averageRouter from './server/routes/weeklyAverage';
 import isLoggedIn from './server/middlewares/isLoggedIn';
 import job from './server/utility/cronJob';
 import passportConfig from './config/passport';
+import models from './server/models';
+import seedData from './seedData.json';
+
+const { WorkoutType } = models;
+const { workoutTypes } = seedData;
 
 const app = express();
 const port = 3000;
@@ -45,11 +50,12 @@ app.get(
 app.get(
   '/oauth2callback',
   passport.authenticate('google', {
+    //  this can also be used => successRedirect: '/home',
     failureRedirect: '/',
   }),
   (req, res) => {
-    // console.log(req.user.email, req.user.id, 'successfully');
-    log.info(req.user.email, 'logged-in successfully');
+    log.info(req.user.email, 'loggedin successfully');
+    res.redirect('/home');
   },
 );
 
@@ -64,6 +70,16 @@ app.get('*', (req, res) => {
 
 
 app.listen(port, () => {
+  const environment = process.env.NODE_ENV;
+  if (environment !== 'test' && environment !== 'travis') {
+    models.sequelize.sync().then(() => {
+      WorkoutType.findAll().then((types) => {
+        if (!types.length) {
+          WorkoutType.bulkCreate(workoutTypes);
+        }
+      });
+    });
+  }
   console.log(`Server is running on port ${port}`);
 });
 

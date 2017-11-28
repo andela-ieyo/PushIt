@@ -1,0 +1,114 @@
+$icon-size: 6rem;
+$icon-color: #777;
+
+$light-green: #7ed56f;
+$medium-green: #55c57a;
+$dark-green: #28b485;
+$color-black: #000;
+
+
+.workout-wrapper {
+  background-color: #eee;
+  padding: 10rem 0;
+}
+
+
+.workout-heading {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 3.5rem;
+  background-image:  linear-gradient(to right, $light-green, $dark-green);
+  display: inline-block;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: .2rem;
+  transition: all .1s;
+
+  &:hover {
+    transform: skewY(5deg) skewX(10deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba($color-black, .2)
+  }
+}
+
+.workout-composition {
+  position: relative;
+  height: 30rem;
+
+  &__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+    transform: all .2s;
+    outline-offset: 20px;
+
+    &--p1 {
+      left: 0;
+      top: -2rem;
+    }
+
+    &--p2 {
+      right: 0;
+      top: 20px;
+    }
+
+    &--p3 {
+      left: 20%;
+      top: 10rem;
+    }
+
+    &:hover {
+      outline: 1.5rem solid $medium-green;
+      transform: scale(1.05) translateY(-.5rem);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+      z-index: 20;
+    }
+  }
+
+  &:hover &__photo:not(:hover) {
+    transform: scale(.95);
+  }
+}
+
+.pushit-stat {
+  .avg-text {
+    color: green;
+    font-weight: bold;
+  }
+  span {
+    margin-right: 1em;
+  }
+}
+
+.right-stn {
+  color: green;
+  font-weight: bold;
+  position: relative;
+
+  .add-record-btn {
+    color: #fff;
+    padding: 2rem 4rem;
+    background-image:  linear-gradient(to right, $light-green, $dark-green);
+    margin-left: 6rem;
+    border-radius: 100px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    &:hover {
+      box-shadow: 0 1.5rem 2rem rgba($color-black, .5);
+    }
+  }
+}
+
+.pushit-loading {
+  color: darkgrey;
+  font-weight: 350;
+  margin-top: 2em;
+}
+
+.fa-history {
+  font-size: $icon-size;
+  color: $icon-color;
+}

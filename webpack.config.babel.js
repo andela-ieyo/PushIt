@@ -36,6 +36,10 @@ export default {
         test: /\.scss$/,
         loaders: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.jpg$/,
+        loader: 'file-loader'
+      }
     ],
   },
 };

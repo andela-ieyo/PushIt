@@ -1,0 +1,122 @@
+
+
+.login-wrapper {
+  background-image: linear-gradient(
+    to right,
+    rgba(126, 213, 11, 0.8),
+    rgba(40, 180, 131, 0.8)),
+  url('../components/login/imgs/bg.jpg');
+  height: 95vh;
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative;
+
+  .login-header-name {
+    color: #fff;
+    backface-visibility: hidden;
+    margin-bottom: 3rem;
+    .login-heading {
+      font-size: 6rem;
+      display: block;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 3.5rem;
+      animation-name: moveInLeft;
+      animation-duration: 2s;
+      animation-timing-function: ease-out;
+      
+      &--sub {
+        font-size: 1.5rem;
+        text-align: center;
+        display: block;
+        font-weight: 400;
+        letter-spacing: 0.5rem;
+        color: #fff;
+        animation: moveInRight 2s ease-out;
+      }
+    }
+  }
+
+  .login-text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%)
+  }
+
+  80% {
+    transform: translate(1rem)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0)
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%)
+  }
+
+  80% {
+    transform: translate(-1rem)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0)
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(10rem)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0)
+  }
+}
+
+.btn-animated {
+  animation: moveInBottom .5s ease-out .75s;
+  animation-fill-mode: backwards;
+}
+
+.btn:link, btn:visited {
+  padding: 1rem 4rem;
+  border-radius: 10rem;
+  transition: all .2s;
+  font-size: 1.6rem;
+}
+
+.btn:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 3rem rgba(0,0,0,0.5);
+}
+
+.btn:active {
+  transform: translateY(-0.1rem);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,0.2)
+}
+
+.fa-google-plus {
+  margin-right: .5rem;
+}
+
+

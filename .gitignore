@@ -5,3 +5,4 @@ package-lock.json
 .sass-cache/
 npm-debug.log
 .vscode/
+public/

@@ -9,7 +9,7 @@ const { WeeklyAverage, Workouts } = models;
 const log = bunyan.createLogger({ name: 'pushIt' });
 
 const job = new CronJob({
-  cronTime: '00 37 15 * * 0',
+  cronTime: '00 00 11 * * 5',
   onTick: () => {
     const today = new Date();
     const monInMilliSec = new Date().setDate(today.getDate() - 20);

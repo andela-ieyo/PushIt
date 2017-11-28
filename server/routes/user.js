@@ -15,7 +15,7 @@ userRouter.param('id', (req, res, next, id) => {
         });
       }
       req.user = user;
-      next();
+      return next();
     })
     .catch((err) => {
       res.status(500).send({
@@ -26,6 +26,6 @@ userRouter.param('id', (req, res, next, id) => {
 });
 
 userRouter.get('/', getAllUsers);
-userRouter.get('/:id', getUser);
+userRouter.get('/loggedin', getUser);
 
 export default userRouter;
