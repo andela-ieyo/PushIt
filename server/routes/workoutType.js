@@ -1,8 +1,9 @@
 import { Router } from 'express';
-import { create } from '../controllers/workoutTypeController';
+import { create, getAllTypes } from '../controllers/workoutTypeController';
 
 const typeRouter = Router();
 
 typeRouter.post('/', create);
+typeRouter.get('/', getAllTypes);
 
 export default typeRouter;

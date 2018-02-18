@@ -1,15 +1,17 @@
 import React from 'react';
 
 const LoginPage = () => (
-  <div className="jumbotron text-center">
-    <h1><span className="fa fa-lock" /> Push It</h1>
-
-    <p>Login or Register with:</p>
-
-    <a href="/auth/google" className="btn btn-danger">
-      <span className="fa fa-google-plus" />
-      Google
-    </a>
+  <div className="login-wrapper">
+    <div className="login-text-box">
+      <h1 className="login-header-name">
+        <span className="login-heading">Push It</span>
+        <span className="login-heading--sub">Login or Register with:</span>
+      </h1>
+      <a href="/auth/google" className="btn btn-danger btn-animated">
+        <span className="fa fa-google-plus" />
+        Google
+      </a>
+    </div>
   </div>
 );
 

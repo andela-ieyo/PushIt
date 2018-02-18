@@ -1,0 +1,7 @@
+{
+  "workoutTypes": [
+    { "name": "Pull-ups"},
+    { "name": "Push-ups"},
+    { "name": "Squats"}
+  ]
+}

@@ -1,16 +1,6 @@
 {
-  "presets": ["react", ["env",
-    {
-      "targets": {
-        "node": "current"
-      }
-    }]
-  ],
-  "env": {
-    "webpack": {
-      "presets": ["react", ["env",
-        { "targets": {"browsers": "last two versions"}, "modules": false }],
-      ]
-    }
-  }
+  "presets": ["react", "env", "stage-2"],
+  "plugins": [
+    "transform-class-properties"
+  ]
 }

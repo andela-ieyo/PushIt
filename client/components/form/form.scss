@@ -1,0 +1,106 @@
+$light-green: #7ed56f;
+$medium-green: #55c57a;
+$dark-green: #28b485;
+$color-black: #000;
+$color-white: #f7f7f7;
+$color-grey-dark-2: #999;
+$color-secondary-dark: #ff7730;
+
+
+.pushit-form {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, $light-green, $dark-green);
+}
+
+.workout {
+  background-image: linear-gradient(105deg,
+                            rgba(darken($color-white, 10%), .9) 0%,
+                            rgba(darken($color-white, 10%), .9) 50%,
+                            transparent 50%),
+                            url('./imgs/photo.jpg');
+  background-size: 100%;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+  width: 100%;
+
+  &__form {
+    width: 50%;
+    padding: 6rem;
+  }
+}
+
+.heading-secondary {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 3.5rem;
+  background-image:  linear-gradient(to right, $light-green, $dark-green);
+  display: inline-block;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: .2rem;
+  transition: all .1s;
+
+  &:hover {
+    transform: skewY(5deg) skewX(10deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba($color-black, .2)
+  }
+}
+
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__select {
+    height: 5.8rem;
+    color: $color-grey-dark-2;
+    margin-bottom: 5rem;
+  }
+
+  &__input {
+    font-size: 1.5rem;
+    font-family: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba(#fff, .5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    display: block;
+
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, .1);
+      border-bottom: 3px solid $medium-green;
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    display: block;
+    transition: all .3s;
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+}
+
+.validate {
+  display: flex;
+  font-size: smaller;
+  font-weight: normal;
+}

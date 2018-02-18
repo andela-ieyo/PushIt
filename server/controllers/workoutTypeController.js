@@ -9,7 +9,7 @@ export const create = (req, res) => {
     .then((workoutType) => {
       res.status(200).send({
         workoutType,
-        message: 'WorkoutType created successfully ',
+        message: 'WorkoutType created successfully'
       });
     })
     .catch((err) => {
@@ -20,4 +20,22 @@ export const create = (req, res) => {
     });
 };
 
-export default create;
+export const getAllTypes = (req, res) => {
+  WorkoutType.findAll(
+    {
+      attributes: ['id', 'name']
+    }
+  )
+    .then((workoutTypes) => {
+      res.status(200).send({
+        workoutTypes,
+        message: 'WorkoutType created successfully'
+      });
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: 'Server error',
+        err,
+      });
+    });
+};
